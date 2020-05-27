@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 flask = "*"
 waitress = "*"
-flask-cors = {editable = true,path = "./../flask-cors"}
+flask-cors = {editable = true,git = "https://github.com/formsort/flask-cors.git",ref = "3.0.8-fn"}
 
 [requires]
 python_version = "3.8"
