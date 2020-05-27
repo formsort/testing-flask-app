@@ -1,6 +1,6 @@
-from app import a
+from app import create_app
 
-application = a
+application = create_app()
 
 
 @application.cli.command()
