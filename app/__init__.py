@@ -5,6 +5,7 @@ from binascii import unhexlify
 import logging
 import datetime
 
+from cachetools.func import ttl_cache
 from flask import Flask, current_app, Response
 from flask_cors import CORS
 
@@ -12,6 +13,7 @@ from flask_cors import CORS
 logger = logging.getLogger("origins")
 
 
+@ttl_cache(maxsize=1, ttl=5)
 def o():
     now = datetime.datetime.now()
     if now.second % 10 < 5:

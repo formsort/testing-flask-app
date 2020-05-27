@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 waitress = "*"
 flask-cors = {editable = true,git = "https://github.com/formsort/flask-cors.git",ref = "3.0.8-fn"}
+cachetools = "*"
 
 [requires]
 python_version = "3.8"
