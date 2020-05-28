@@ -3,7 +3,7 @@ import logging
 import datetime
 
 from cachetools.func import ttl_cache
-from flask import Flask
+from flask import Flask, current_app, has_app_context
 from flask_cors import CORS
 
 from .index import index
@@ -14,6 +14,8 @@ logger = logging.getLogger("origins")
 
 @ttl_cache(maxsize=1, ttl=5)
 def o():
+    if not has_app_context():
+        logger.warn("=== PROBLEM")
     now = datetime.datetime.now()
     if now.second % 10 < 5:
         logger.warn("origins b")

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a3d7512accada1aaaa28e01101f1da0ee9318c2ce6c5361f6cd8f437ca53512d"
+            "sha256": "f3535aabed1ed46182f0cd1f03513f4cf82b85fc7b453e97133c8697829a4a0b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -42,7 +42,7 @@
         "flask-cors": {
             "editable": true,
             "git": "https://github.com/formsort/flask-cors.git",
-            "ref": "3122cdf785027190001457fcb40c3f0b0a74b223"
+            "ref": "46fa8cc6ae65170e74516fd2c15bc7951beb194d"
         },
         "itsdangerous": {
             "hashes": [
