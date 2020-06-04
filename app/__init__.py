@@ -3,10 +3,11 @@ import logging
 import datetime
 
 from cachetools.func import ttl_cache
-from flask import Flask, current_app, has_app_context
-from flask_cors import CORS
+from flask import Flask, has_app_context
 
+from .extensions import db, cors, migrate
 from .index import index
+from .models import Account  # noqa
 
 
 logger = logging.getLogger("origins")
@@ -25,7 +26,16 @@ def o():
 
 
 def create_app():
-    le_app = Flask(__name__)
-    CORS(le_app, origins=o)
-    le_app.register_blueprint(index)
-    return le_app
+    app = Flask(__name__)
+    app.config.from_pyfile("config.py")
+    db.init_app(app)
+    cors.init_app(app, origins=o)
+    migrate.init_app(
+        app,
+        db,
+        # literal_binds=True,
+        compare_type=True,
+        compare_server_default=True,
+    )
+    app.register_blueprint(index)
+    return app
