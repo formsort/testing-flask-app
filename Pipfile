@@ -5,15 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 black = "==19.10b0"
+pytest = "*"
+pytest-cov = "*"
+flake8 = "*"
 
 [packages]
 flask = "*"
 waitress = "*"
-cachetools = "*"
-flask-cors = {editable = true,git = "https://github.com/formsort/flask-cors.git",ref = "3.0.8-fn-v2"}
-flask-sqlalchemy = "*"
 psycopg2 = "*"
-flask-migrate = "*"
+flask-sqlalchemy = "*"
 
 [requires]
 python_version = "3.8"
